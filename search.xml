@@ -29,6 +29,60 @@
     
     
     <entry>
+      <title>Hexo线上部署</title>
+      <link href="/2022/11/11/Hexo%E7%BA%BF%E4%B8%8A%E9%83%A8%E7%BD%B2/"/>
+      <url>/2022/11/11/Hexo%E7%BA%BF%E4%B8%8A%E9%83%A8%E7%BD%B2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Hexo线上部署"><a href="#Hexo线上部署" class="headerlink" title="Hexo线上部署"></a>Hexo线上部署</h1><h3 id="Vercel-部署"><a href="#Vercel-部署" class="headerlink" title="Vercel 部署"></a>Vercel 部署</h3><p>Vercel 简介：<a href="https://vercel.com/dashboard">vercel</a> 是一个代码托管平台，它能够托管你的静态 html 界面，甚至能够托管你的 node.js 与 Python 服务端脚本，是 <strong>不想买服务器的懒人的福音</strong>！</p><p><strong>使用 Vercel 部署 Hexo 项目步骤：</strong></p><ol><li>首先需要一个 Vercel 账号，这里<strong>推荐用 GitHub 账户关联，这样你就可以在 vercel 中直接托管你的 GitHub 库中的项目了</strong>，实现开发部署一步到位（网络不流畅可以考虑挂梯子）。<br><a href="https://s1.vika.cn/space/2022/10/27/5ecde0efb97e4efe8c872c07f2b29301"><img src="https://s1.vika.cn/space/2022/10/27/5ecde0efb97e4efe8c872c07f2b29301" alt="image-20221027223132537"></a></li><li>当你用你的 Github 账户关联并绑定手机号登录之后，点击右上角的 <code>Add New Project</code> 创建新的项目，之后导入选项那里选择 <code>Continue with Github</code>，这时候应该能看到你 Github 账号的仓库，选择你刚刚部署成功的存储静态博客的仓库 <code>&lt;username&gt;.github.io</code> 右边的 <code>Import</code> 选项，表示你要导入该仓库。<br><a href="https://s1.vika.cn/space/2022/10/27/13d509ad17d44a5ebf60d6bd7cde05f4"><img src="https://s1.vika.cn/space/2022/10/27/13d509ad17d44a5ebf60d6bd7cde05f4" alt="image-20221027223231192"></a><br><a href="https://s1.vika.cn/space/2022/10/27/23780c3fc63546559ff02d303f97e37d"><img src="https://s1.vika.cn/space/2022/10/27/23780c3fc63546559ff02d303f97e37d" alt="image-20221027223420282"></a><br><a href="https://s1.vika.cn/space/2022/10/27/7e1c080e435648a1a27a0f21d19e979d"><img src="https://s1.vika.cn/space/2022/10/27/7e1c080e435648a1a27a0f21d19e979d" alt="image-20221027223742660"></a></li><li>起一个只能有字母、数字或者或者连字符的项目名称，然后其他默认，点击 <code>Deploy</code>，等待一分钟即可部署成功，部署成功后电极 <code>Continue to Dashboard</code> 跳转到控制面板，下图所示就是控制面板，看到就代表成功部署到了，但是我们现在还不能访问他给出的域，因为 GFW 最近把 Vercel 屏蔽了。</li></ol><p><a href="https://s1.vika.cn/space/2022/10/27/09b5ce9b3ac64d2dad2acdf3cca92b5f"><img src="https://s1.vika.cn/space/2022/10/27/09b5ce9b3ac64d2dad2acdf3cca92b5f" alt="image-20221027224225808"></a></p><p><a href="https://s1.vika.cn/space/2022/10/27/43c6816280914f6ebbab1d6ec345c8f9"><img src="https://s1.vika.cn/space/2022/10/27/43c6816280914f6ebbab1d6ec345c8f9" alt="image-20221027224405464"></a></p><h3 id="绑定自定义域名"><a href="#绑定自定义域名" class="headerlink" title="绑定自定义域名"></a>绑定自定义域名</h3><p>现在你的个人网站的地址是 <code>username.github.io</code> 以及在 Vercel 上有一个 <code>blog-demo-chi.vercel.app</code>。如果觉得不够定制化，可以购买一个专属域名。</p><p>这一步不是必要的，如果目前还不想买域名可以先跳过。</p><p>腾讯云、阿里云等都是不错的域名代理商，建议选用 <code>com</code>，<code>cn</code> 或 <code>cc</code> 这类常用好记的顶域，对 SEO 比较友好，自定义部分的长度尽可能短别人才会更容易地记住你的网站，要知道域名就是你网站的卡片。此处以阿里云域名为例进行说明，购买域名后，实名认证进入阿里云控制台，点云解析进去，找到你刚买的域名，点进去添加 Vercel 所需的解析记录，注意博主这里是解析二级域名只需要解析一条即可。但是如果是一级域名，需要解析两个，一个是 <code>@</code>，另外一个是 <code>www</code>，Vercel 建议是 <code>@</code>的解析重定向至 <code>www</code>。</p><p>以我的域名：<code>fomal.cc</code> 为例进行说明</p><table><thead><tr><th align="center">主机记录</th><th align="center">解释</th></tr></thead><tbody><tr><td align="center">www</td><td align="center">解析后的域名为 <a href="http://www.fomal.cc/">www.fomal.cc</a></td></tr><tr><td align="center">@</td><td align="center">直接解析主域名 <a href="http://fomal.cc/">fomal.cc</a></td></tr><tr><td align="center">*</td><td align="center">泛解析，匹配其他所有域名 *.fomal.cc</td></tr><tr><td align="center">mail</td><td align="center">将域名解析为 <a href="http://mail.fomal.cc/">mail.fomal.cc</a>，通常用于解析邮箱服务器</td></tr><tr><td align="center">二级</td><td align="center">如 <a href="http://abc.fomal.cc/">abc.fomal.cc</a>，填写 abc</td></tr><tr><td align="center">手机网站</td><td align="center">如 <a href="http://m.fomal.cc/">m.fomal.cc</a>，填写 m</td></tr><tr><td align="center">显性 URL</td><td align="center">不支持泛解析（泛解析：将所有子域名解析到同一地址）</td></tr></tbody></table><p>将域名指向云服务器，请选择「A」； 将域名指向另一个域名，请选择「CNAME」； 建立邮箱请选择「MX」，根据邮箱服务商提供的 MX 记录填写。</p><table><thead><tr><th align="center">记录类型</th><th align="center">解释</th></tr></thead><tbody><tr><td align="center">A</td><td align="center">用来指定域名的 IPv4 地址（如 8.8.8.8），如果需要将域名指向一个 IP 地址，就需要添加 A 记录。</td></tr><tr><td align="center">CNAME</td><td align="center">如果需要将域名指向另一个域名，再由另一个域名提供 IP 地址，就需要添加 CNAME 记录。</td></tr><tr><td align="center">MX</td><td align="center">如果需要设置邮箱，让邮箱能收到邮件，就需要添加 MX 记录。</td></tr><tr><td align="center">TXT</td><td align="center">在这里可以填写任何东西，长度限制 255。绝大多数的 TXT 记录是用来做 SPF 记录（反垃圾邮件）</td></tr><tr><td align="center">NS</td><td align="center">域名服务器记录，如果需要将子域名交给其他 DNS 服务商解析，就需要添加 NS 记录。</td></tr><tr><td align="center">AAAA</td><td align="center">用来指定主机名（或域名）对应的 IPv6 地址（例如：ff06:0:0:0:0:0:0:c3）记录。</td></tr><tr><td align="center">SRV</td><td align="center">记录了哪台计算机提供了哪个服务。格式为：服务的名字、点、协议的类型，例如：_xmpp-server_tcp。</td></tr><tr><td align="center">显性 URL</td><td align="center">从一个地址 301 重定向到另一个地址的时候，就需要添加显性 URL 记录（注：DNSPod 目前只支持 301 重定向）。</td></tr><tr><td align="center">隐性 URL</td><td align="center">类似于显性 URL，区别在于隐性 URL 不会改变地址栏的域名。</td></tr></tbody></table><p><strong>添加自定义域名的步骤：</strong></p><ol><li>点击 Vercel 控制面板右上角的 <code>View Domains</code> 查看当前的域，我们可以看到仅有 Vercel 给你预分配的一个域名，此时我们输入刚刚购买的域名，我这里以二级域名 <code>demo.fomal.cc</code> 为例进行说明，添加后他会提示你添加一条 DNS 解析记录。<br><a href="https://s1.vika.cn/space/2022/10/27/f0890ccf90d04ac7985a40558b8f0aad"><img src="https://s1.vika.cn/space/2022/10/27/f0890ccf90d04ac7985a40558b8f0aad" alt="image-20221027224803563"></a><br><a href="https://s1.vika.cn/space/2022/10/27/3a1e809ca99a452fae6229d9b69134ad"><img src="https://s1.vika.cn/space/2022/10/27/3a1e809ca99a452fae6229d9b69134ad" alt="image-20221027224830609"></a><br><a href="https://s1.vika.cn/space/2022/10/27/1bd6bdd5cc924661a0bf779997240e86"><img src="https://s1.vika.cn/space/2022/10/27/1bd6bdd5cc924661a0bf779997240e86" alt="image-20221027225338126"></a><br><strong>PS</strong>：如果你是新买的域名，直接输入你新买的一级域名即可，例如 <code>demo123.com</code>，他会推荐你将 <code>demo123.com</code> 重定向至 <code>www.demo123.com</code>，点 <code>ADD</code> 即可，然后他会提示你添加两条解析记录，一个是 <code>@</code>开头的和 <code>CNAME</code> 开头的，添加记录的方法和二级域名一致。<br><a href="https://s1.vika.cn/space/2022/10/27/66c6d6f8fac84481b788228c4222864d"><img src="https://s1.vika.cn/space/2022/10/27/66c6d6f8fac84481b788228c4222864d" alt="image-20221027225758503"></a><br><a href="https://s1.vika.cn/space/2022/10/27/d6dd5ec65e93439482a7ddd5833ebd9d"><img src="https://s1.vika.cn/space/2022/10/27/d6dd5ec65e93439482a7ddd5833ebd9d" alt="image-20221027225808449"></a></li><li>在阿里云域名解析记录里面添加如下记录，其中记录类型对应 <code>Type</code>，主机记录对应 <code>Name</code>，记录值对应 <code>Value</code>，其他的设置默认即可。<br><a href="https://s1.vika.cn/space/2022/10/27/83c253f0710f44c1b80bc662e4a97636"><img src="https://s1.vika.cn/space/2022/10/27/83c253f0710f44c1b80bc662e4a97636" alt="image-20221027230049667"></a></li><li>回到 Vercel 刚刚查看域名的地方，如果操作没问题，应该会显示域名配置成功的提示，此时就可以通过自定义域名来访问我们搭建的网站了。<br><a href="https://s1.vika.cn/space/2022/10/27/9604de65a5524ba88d7e43f9412229d3"><img src="https://s1.vika.cn/space/2022/10/27/9604de65a5524ba88d7e43f9412229d3" alt="image-20221027230357362"></a><br><a href="https://s1.vika.cn/space/2022/10/27/244bc979f30149778b9e1ffc7038ecd0"><img src="https://s1.vika.cn/space/2022/10/27/244bc979f30149778b9e1ffc7038ecd0" alt="image-20221027230421929"></a></li><li>当你有了新的域名之后，需要 <code>[BlogRoot]\_config.yml</code> 文件中的 <code>url</code> 配置项为自己的新域名，这样博客的文章链接才会正确生成。</li></ol><p><a href="https://s1.vika.cn/space/2022/10/28/fa95d5aef2ac45deb4a02400056047e1"><img src="https://s1.vika.cn/space/2022/10/28/fa95d5aef2ac45deb4a02400056047e1" alt="image-20221028113042788"></a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 码农 </category>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>二叉堆</title>
+      <link href="/2022/11/11/%E4%BA%8C%E5%8F%89%E5%A0%86/"/>
+      <url>/2022/11/11/%E4%BA%8C%E5%8F%89%E5%A0%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="二叉堆"><a href="#二叉堆" class="headerlink" title="二叉堆"></a>二叉堆</h1><h3 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h3><p>大顶堆：每个结点的值都大于或等于其左右孩子结点的值<br>小顶堆：每个结点的值都小于或等于其左右孩子结点的值<br>二叉堆就是一颗二叉树，是一颗完全二叉树</p><p>定义两个操作：<br>down（int k ）：从编号为k的点向下更新<br>up（int k) :从编号为k的点向上更新</p><p>h[]堆数组，size堆当前大小<br>堆的变化(都可以由上面定义的两个操作来实现)：<br>1.插入一个数 -&gt; h[++ size] = x; up(size)<br>2.求集合中的最小值 -&gt; h[1]<br>3.删除最小值 -&gt; h[1] = h[size]; size –; down(1)<br>4.删除任意一个元素 -&gt; h[k] = h[size]; size –; down(k); up(k);<br>5.修改任意一个元素 -&gt; h[k] = x; down(k); up(k);</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">down</span> <span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="type">int</span> t = u;<span class="comment">//t存储当前位置和左右儿子的最小节点</span></span><br><span class="line"><span class="keyword">if</span> (<span class="number">2</span> * u &lt;= size1 &amp;&amp; h[<span class="number">2</span> * u] &lt; h[t])t = <span class="number">2</span> * u;</span><br><span class="line"><span class="keyword">if</span> (<span class="number">2</span> * u + <span class="number">1</span> &lt;= size1 &amp;&amp; h[<span class="number">2</span> * u + <span class="number">1</span>] &lt; h[t]) t = <span class="number">2</span> * u + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (u != t)<span class="comment">//如果父节点大于其中的儿子节点需要down操作</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">swap</span> (h[u], h[t]);</span><br><span class="line"><span class="built_in">down</span> (t);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">up</span><span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(u/<span class="number">2</span> &amp;&amp; h[u/<span class="number">2</span>]&gt;h[u])<span class="comment">//父结点的值大于儿子节点需要交换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">h_swap</span>(u/<span class="number">2</span>,u);</span><br><span class="line">        u/=<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 码农 </category>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二叉查找</title>
       <link href="/2022/11/11/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
       <url>/2022/11/11/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
@@ -50,33 +104,6 @@
             <tag> 算法 </tag>
             
             <tag> STL库 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hexo线上部署</title>
-      <link href="/2022/11/11/Hexo%E7%BA%BF%E4%B8%8A%E9%83%A8%E7%BD%B2/"/>
-      <url>/2022/11/11/Hexo%E7%BA%BF%E4%B8%8A%E9%83%A8%E7%BD%B2/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Hexo线上部署"><a href="#Hexo线上部署" class="headerlink" title="Hexo线上部署"></a>Hexo线上部署</h1><h3 id="Vercel-部署"><a href="#Vercel-部署" class="headerlink" title="Vercel 部署"></a>Vercel 部署</h3><p>Vercel 简介：<a href="https://vercel.com/dashboard">vercel</a> 是一个代码托管平台，它能够托管你的静态 html 界面，甚至能够托管你的 node.js 与 Python 服务端脚本，是 <strong>不想买服务器的懒人的福音</strong>！</p><p><strong>使用 Vercel 部署 Hexo 项目步骤：</strong></p><ol><li>首先需要一个 Vercel 账号，这里<strong>推荐用 GitHub 账户关联，这样你就可以在 vercel 中直接托管你的 GitHub 库中的项目了</strong>，实现开发部署一步到位（网络不流畅可以考虑挂梯子）。<br><a href="https://s1.vika.cn/space/2022/10/27/5ecde0efb97e4efe8c872c07f2b29301"><img src="https://s1.vika.cn/space/2022/10/27/5ecde0efb97e4efe8c872c07f2b29301" alt="image-20221027223132537"></a></li><li>当你用你的 Github 账户关联并绑定手机号登录之后，点击右上角的 <code>Add New Project</code> 创建新的项目，之后导入选项那里选择 <code>Continue with Github</code>，这时候应该能看到你 Github 账号的仓库，选择你刚刚部署成功的存储静态博客的仓库 <code>&lt;username&gt;.github.io</code> 右边的 <code>Import</code> 选项，表示你要导入该仓库。<br><a href="https://s1.vika.cn/space/2022/10/27/13d509ad17d44a5ebf60d6bd7cde05f4"><img src="https://s1.vika.cn/space/2022/10/27/13d509ad17d44a5ebf60d6bd7cde05f4" alt="image-20221027223231192"></a><br><a href="https://s1.vika.cn/space/2022/10/27/23780c3fc63546559ff02d303f97e37d"><img src="https://s1.vika.cn/space/2022/10/27/23780c3fc63546559ff02d303f97e37d" alt="image-20221027223420282"></a><br><a href="https://s1.vika.cn/space/2022/10/27/7e1c080e435648a1a27a0f21d19e979d"><img src="https://s1.vika.cn/space/2022/10/27/7e1c080e435648a1a27a0f21d19e979d" alt="image-20221027223742660"></a></li><li>起一个只能有字母、数字或者或者连字符的项目名称，然后其他默认，点击 <code>Deploy</code>，等待一分钟即可部署成功，部署成功后电极 <code>Continue to Dashboard</code> 跳转到控制面板，下图所示就是控制面板，看到就代表成功部署到了，但是我们现在还不能访问他给出的域，因为 GFW 最近把 Vercel 屏蔽了。</li></ol><p><a href="https://s1.vika.cn/space/2022/10/27/09b5ce9b3ac64d2dad2acdf3cca92b5f"><img src="https://s1.vika.cn/space/2022/10/27/09b5ce9b3ac64d2dad2acdf3cca92b5f" alt="image-20221027224225808"></a></p><p><a href="https://s1.vika.cn/space/2022/10/27/43c6816280914f6ebbab1d6ec345c8f9"><img src="https://s1.vika.cn/space/2022/10/27/43c6816280914f6ebbab1d6ec345c8f9" alt="image-20221027224405464"></a></p><h3 id="绑定自定义域名"><a href="#绑定自定义域名" class="headerlink" title="绑定自定义域名"></a>绑定自定义域名</h3><p>现在你的个人网站的地址是 <code>username.github.io</code> 以及在 Vercel 上有一个 <code>blog-demo-chi.vercel.app</code>。如果觉得不够定制化，可以购买一个专属域名。</p><p>这一步不是必要的，如果目前还不想买域名可以先跳过。</p><p>腾讯云、阿里云等都是不错的域名代理商，建议选用 <code>com</code>，<code>cn</code> 或 <code>cc</code> 这类常用好记的顶域，对 SEO 比较友好，自定义部分的长度尽可能短别人才会更容易地记住你的网站，要知道域名就是你网站的卡片。此处以阿里云域名为例进行说明，购买域名后，实名认证进入阿里云控制台，点云解析进去，找到你刚买的域名，点进去添加 Vercel 所需的解析记录，注意博主这里是解析二级域名只需要解析一条即可。但是如果是一级域名，需要解析两个，一个是 <code>@</code>，另外一个是 <code>www</code>，Vercel 建议是 <code>@</code>的解析重定向至 <code>www</code>。</p><p>以我的域名：<code>fomal.cc</code> 为例进行说明</p><table><thead><tr><th align="center">主机记录</th><th align="center">解释</th></tr></thead><tbody><tr><td align="center">www</td><td align="center">解析后的域名为 <a href="http://www.fomal.cc/">www.fomal.cc</a></td></tr><tr><td align="center">@</td><td align="center">直接解析主域名 <a href="http://fomal.cc/">fomal.cc</a></td></tr><tr><td align="center">*</td><td align="center">泛解析，匹配其他所有域名 *.fomal.cc</td></tr><tr><td align="center">mail</td><td align="center">将域名解析为 <a href="http://mail.fomal.cc/">mail.fomal.cc</a>，通常用于解析邮箱服务器</td></tr><tr><td align="center">二级</td><td align="center">如 <a href="http://abc.fomal.cc/">abc.fomal.cc</a>，填写 abc</td></tr><tr><td align="center">手机网站</td><td align="center">如 <a href="http://m.fomal.cc/">m.fomal.cc</a>，填写 m</td></tr><tr><td align="center">显性 URL</td><td align="center">不支持泛解析（泛解析：将所有子域名解析到同一地址）</td></tr></tbody></table><p>将域名指向云服务器，请选择「A」； 将域名指向另一个域名，请选择「CNAME」； 建立邮箱请选择「MX」，根据邮箱服务商提供的 MX 记录填写。</p><table><thead><tr><th align="center">记录类型</th><th align="center">解释</th></tr></thead><tbody><tr><td align="center">A</td><td align="center">用来指定域名的 IPv4 地址（如 8.8.8.8），如果需要将域名指向一个 IP 地址，就需要添加 A 记录。</td></tr><tr><td align="center">CNAME</td><td align="center">如果需要将域名指向另一个域名，再由另一个域名提供 IP 地址，就需要添加 CNAME 记录。</td></tr><tr><td align="center">MX</td><td align="center">如果需要设置邮箱，让邮箱能收到邮件，就需要添加 MX 记录。</td></tr><tr><td align="center">TXT</td><td align="center">在这里可以填写任何东西，长度限制 255。绝大多数的 TXT 记录是用来做 SPF 记录（反垃圾邮件）</td></tr><tr><td align="center">NS</td><td align="center">域名服务器记录，如果需要将子域名交给其他 DNS 服务商解析，就需要添加 NS 记录。</td></tr><tr><td align="center">AAAA</td><td align="center">用来指定主机名（或域名）对应的 IPv6 地址（例如：ff06:0:0:0:0:0:0:c3）记录。</td></tr><tr><td align="center">SRV</td><td align="center">记录了哪台计算机提供了哪个服务。格式为：服务的名字、点、协议的类型，例如：_xmpp-server_tcp。</td></tr><tr><td align="center">显性 URL</td><td align="center">从一个地址 301 重定向到另一个地址的时候，就需要添加显性 URL 记录（注：DNSPod 目前只支持 301 重定向）。</td></tr><tr><td align="center">隐性 URL</td><td align="center">类似于显性 URL，区别在于隐性 URL 不会改变地址栏的域名。</td></tr></tbody></table><p><strong>添加自定义域名的步骤：</strong></p><ol><li>点击 Vercel 控制面板右上角的 <code>View Domains</code> 查看当前的域，我们可以看到仅有 Vercel 给你预分配的一个域名，此时我们输入刚刚购买的域名，我这里以二级域名 <code>demo.fomal.cc</code> 为例进行说明，添加后他会提示你添加一条 DNS 解析记录。<br><a href="https://s1.vika.cn/space/2022/10/27/f0890ccf90d04ac7985a40558b8f0aad"><img src="https://s1.vika.cn/space/2022/10/27/f0890ccf90d04ac7985a40558b8f0aad" alt="image-20221027224803563"></a><br><a href="https://s1.vika.cn/space/2022/10/27/3a1e809ca99a452fae6229d9b69134ad"><img src="https://s1.vika.cn/space/2022/10/27/3a1e809ca99a452fae6229d9b69134ad" alt="image-20221027224830609"></a><br><a href="https://s1.vika.cn/space/2022/10/27/1bd6bdd5cc924661a0bf779997240e86"><img src="https://s1.vika.cn/space/2022/10/27/1bd6bdd5cc924661a0bf779997240e86" alt="image-20221027225338126"></a><br><strong>PS</strong>：如果你是新买的域名，直接输入你新买的一级域名即可，例如 <code>demo123.com</code>，他会推荐你将 <code>demo123.com</code> 重定向至 <code>www.demo123.com</code>，点 <code>ADD</code> 即可，然后他会提示你添加两条解析记录，一个是 <code>@</code>开头的和 <code>CNAME</code> 开头的，添加记录的方法和二级域名一致。<br><a href="https://s1.vika.cn/space/2022/10/27/66c6d6f8fac84481b788228c4222864d"><img src="https://s1.vika.cn/space/2022/10/27/66c6d6f8fac84481b788228c4222864d" alt="image-20221027225758503"></a><br><a href="https://s1.vika.cn/space/2022/10/27/d6dd5ec65e93439482a7ddd5833ebd9d"><img src="https://s1.vika.cn/space/2022/10/27/d6dd5ec65e93439482a7ddd5833ebd9d" alt="image-20221027225808449"></a></li><li>在阿里云域名解析记录里面添加如下记录，其中记录类型对应 <code>Type</code>，主机记录对应 <code>Name</code>，记录值对应 <code>Value</code>，其他的设置默认即可。<br><a href="https://s1.vika.cn/space/2022/10/27/83c253f0710f44c1b80bc662e4a97636"><img src="https://s1.vika.cn/space/2022/10/27/83c253f0710f44c1b80bc662e4a97636" alt="image-20221027230049667"></a></li><li>回到 Vercel 刚刚查看域名的地方，如果操作没问题，应该会显示域名配置成功的提示，此时就可以通过自定义域名来访问我们搭建的网站了。<br><a href="https://s1.vika.cn/space/2022/10/27/9604de65a5524ba88d7e43f9412229d3"><img src="https://s1.vika.cn/space/2022/10/27/9604de65a5524ba88d7e43f9412229d3" alt="image-20221027230357362"></a><br><a href="https://s1.vika.cn/space/2022/10/27/244bc979f30149778b9e1ffc7038ecd0"><img src="https://s1.vika.cn/space/2022/10/27/244bc979f30149778b9e1ffc7038ecd0" alt="image-20221027230421929"></a></li><li>当你有了新的域名之后，需要 <code>[BlogRoot]\_config.yml</code> 文件中的 <code>url</code> 配置项为自己的新域名，这样博客的文章链接才会正确生成。</li></ol><p><a href="https://s1.vika.cn/space/2022/10/28/fa95d5aef2ac45deb4a02400056047e1"><img src="https://s1.vika.cn/space/2022/10/28/fa95d5aef2ac45deb4a02400056047e1" alt="image-20221028113042788"></a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 码农 </category>
-          
-          <category> Hexo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据结构 </tag>
             
         </tags>
       
@@ -114,33 +141,6 @@
     
     
     <entry>
-      <title>二叉堆</title>
-      <link href="/2022/11/11/%E4%BA%8C%E5%8F%89%E5%A0%86/"/>
-      <url>/2022/11/11/%E4%BA%8C%E5%8F%89%E5%A0%86/</url>
-      
-        <content type="html"><![CDATA[<h1 id="二叉堆"><a href="#二叉堆" class="headerlink" title="二叉堆"></a>二叉堆</h1><h3 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h3><p>大顶堆：每个结点的值都大于或等于其左右孩子结点的值<br>小顶堆：每个结点的值都小于或等于其左右孩子结点的值<br>二叉堆就是一颗二叉树，是一颗完全二叉树</p><p>定义两个操作：<br>down（int k ）：从编号为k的点向下更新<br>up（int k) :从编号为k的点向上更新</p><p>h[]堆数组，size堆当前大小<br>堆的变化(都可以由上面定义的两个操作来实现)：<br>1.插入一个数 -&gt; h[++ size] = x; up(size)<br>2.求集合中的最小值 -&gt; h[1]<br>3.删除最小值 -&gt; h[1] = h[size]; size –; down(1)<br>4.删除任意一个元素 -&gt; h[k] = h[size]; size –; down(k); up(k);<br>5.修改任意一个元素 -&gt; h[k] = x; down(k); up(k);</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">down</span> <span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="type">int</span> t = u;<span class="comment">//t存储当前位置和左右儿子的最小节点</span></span><br><span class="line"><span class="keyword">if</span> (<span class="number">2</span> * u &lt;= size1 &amp;&amp; h[<span class="number">2</span> * u] &lt; h[t])t = <span class="number">2</span> * u;</span><br><span class="line"><span class="keyword">if</span> (<span class="number">2</span> * u + <span class="number">1</span> &lt;= size1 &amp;&amp; h[<span class="number">2</span> * u + <span class="number">1</span>] &lt; h[t]) t = <span class="number">2</span> * u + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (u != t)<span class="comment">//如果父节点大于其中的儿子节点需要down操作</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">swap</span> (h[u], h[t]);</span><br><span class="line"><span class="built_in">down</span> (t);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">up</span><span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(u/<span class="number">2</span> &amp;&amp; h[u/<span class="number">2</span>]&gt;h[u])<span class="comment">//父结点的值大于儿子节点需要交换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">h_swap</span>(u/<span class="number">2</span>,u);</span><br><span class="line">        u/=<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 码农 </category>
-          
-          <category> 数据结构 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据结构 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>并查集</title>
       <link href="/2022/11/11/%E5%B9%B6%E6%9F%A5%E9%9B%86(%E5%BE%85%E6%9B%B4%E6%96%B0/"/>
       <url>/2022/11/11/%E5%B9%B6%E6%9F%A5%E9%9B%86(%E5%BE%85%E6%9B%B4%E6%96%B0/</url>
@@ -159,9 +159,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> 最小生成树 </tag>
             
@@ -201,6 +201,33 @@
     
     
     <entry>
+      <title>拓补序列</title>
+      <link href="/2022/11/11/%E6%8B%93%E8%A1%A5%E5%BA%8F%E5%88%97/"/>
+      <url>/2022/11/11/%E6%8B%93%E8%A1%A5%E5%BA%8F%E5%88%97/</url>
+      
+        <content type="html"><![CDATA[<h1 id="拓补序列"><a href="#拓补序列" class="headerlink" title="拓补序列"></a>拓补序列</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mode = <span class="number">80112002</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span><span class="comment">//记录单点的出度入度</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> in=<span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> out=<span class="number">0</span>;</span><br><span class="line">&#125;jd[<span class="number">1000001</span>];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; mp[<span class="number">10001</span>];<span class="comment">//存图</span></span><br><span class="line">queue&lt;<span class="type">int</span>&gt; qe;<span class="comment">//拓补核心</span></span><br><span class="line"><span class="type">int</span> nums[<span class="number">10001</span>];</span><br><span class="line"><span class="type">int</span> n, m,ans;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;<span class="comment">//存图</span></span><br><span class="line">        <span class="type">int</span> a, b;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        mp[a].<span class="built_in">push_back</span>(b);</span><br><span class="line">        jd[a].out++;</span><br><span class="line">        jd[b].in++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++)&#123;<span class="comment">//找到入度为零者</span></span><br><span class="line">        <span class="keyword">if</span>(!jd[i].in)&#123;</span><br><span class="line">            nums[i] = <span class="number">1</span>;</span><br><span class="line">            qe.<span class="built_in">push</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!qe.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="type">int</span> u = qe.<span class="built_in">front</span>();</span><br><span class="line">        qe.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; mp[u].<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="type">int</span> next = mp[u][i];</span><br><span class="line">            jd[next].in--;</span><br><span class="line">            nums[next] =(nums[next]+nums[u]);</span><br><span class="line">            <span class="keyword">if</span>(!jd[next].in)</span><br><span class="line">                qe.<span class="built_in">push</span>(next);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!jd[i].out)</span><br><span class="line">            ans = (ans + nums[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="时间复杂度：n-m"><a href="#时间复杂度：n-m" class="headerlink" title="时间复杂度：n+m"></a>时间复杂度：n+m</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 码农 </category>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>最短路</title>
       <link href="/2022/11/11/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
       <url>/2022/11/11/%E6%9C%80%E7%9F%AD%E8%B7%AF/</url>
@@ -222,33 +249,6 @@
             <tag> 数据结构 </tag>
             
             <tag> 堆优化 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>拓补序列</title>
-      <link href="/2022/11/11/%E6%8B%93%E8%A1%A5%E5%BA%8F%E5%88%97/"/>
-      <url>/2022/11/11/%E6%8B%93%E8%A1%A5%E5%BA%8F%E5%88%97/</url>
-      
-        <content type="html"><![CDATA[<h1 id="拓补序列"><a href="#拓补序列" class="headerlink" title="拓补序列"></a>拓补序列</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mode = <span class="number">80112002</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span><span class="comment">//记录单点的出度入度</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> in=<span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> out=<span class="number">0</span>;</span><br><span class="line">&#125;jd[<span class="number">1000001</span>];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; mp[<span class="number">10001</span>];<span class="comment">//存图</span></span><br><span class="line">queue&lt;<span class="type">int</span>&gt; qe;<span class="comment">//拓补核心</span></span><br><span class="line"><span class="type">int</span> nums[<span class="number">10001</span>];</span><br><span class="line"><span class="type">int</span> n, m,ans;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;<span class="comment">//存图</span></span><br><span class="line">        <span class="type">int</span> a, b;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        mp[a].<span class="built_in">push_back</span>(b);</span><br><span class="line">        jd[a].out++;</span><br><span class="line">        jd[b].in++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++)&#123;<span class="comment">//找到入度为零者</span></span><br><span class="line">        <span class="keyword">if</span>(!jd[i].in)&#123;</span><br><span class="line">            nums[i] = <span class="number">1</span>;</span><br><span class="line">            qe.<span class="built_in">push</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!qe.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="type">int</span> u = qe.<span class="built_in">front</span>();</span><br><span class="line">        qe.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; mp[u].<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="type">int</span> next = mp[u][i];</span><br><span class="line">            jd[next].in--;</span><br><span class="line">            nums[next] =(nums[next]+nums[u]);</span><br><span class="line">            <span class="keyword">if</span>(!jd[next].in)</span><br><span class="line">                qe.<span class="built_in">push</span>(next);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!jd[i].out)</span><br><span class="line">            ans = (ans + nums[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="时间复杂度：n-m"><a href="#时间复杂度：n-m" class="headerlink" title="时间复杂度：n+m"></a>时间复杂度：n+m</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> 码农 </category>
-          
-          <category> 数据结构 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据结构 </tag>
             
         </tags>
       
