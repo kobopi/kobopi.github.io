@@ -112,35 +112,6 @@
     
     
     <entry>
-      <title>快读模板</title>
-      <link href="/2022/11/11/%E5%BF%AB%E8%AF%BB%E6%A8%A1%E6%9D%BF/"/>
-      <url>/2022/11/11/%E5%BF%AB%E8%AF%BB%E6%A8%A1%E6%9D%BF/</url>
-      
-        <content type="html"><![CDATA[<h3 id="int类型"><a href="#int类型" class="headerlink" title="int类型"></a>int类型</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="type">int</span> x = <span class="number">0</span>, f = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">register</span> <span class="type">char</span> ch = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">            f = <span class="number">-1</span>;</span><br><span class="line">        ch = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">        x = x * <span class="number">10</span> + ch - <span class="string">&#x27;0&#x27;</span>, ch = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x * f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> x=<span class="built_in">read</span>();</span><br><span class="line">    cout &lt;&lt; x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><em>cin&gt;scanf&gt;快读</em></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 码农 </category>
-          
-          <category> 优化技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> IO </tag>
-            
-            <tag> 优化 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>并查集</title>
       <link href="/2022/11/11/%E5%B9%B6%E6%9F%A5%E9%9B%86(%E5%BE%85%E6%9B%B4%E6%96%B0/"/>
       <url>/2022/11/11/%E5%B9%B6%E6%9F%A5%E9%9B%86(%E5%BE%85%E6%9B%B4%E6%96%B0/</url>
@@ -164,6 +135,35 @@
             <tag> 算法 </tag>
             
             <tag> 最小生成树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>快读模板</title>
+      <link href="/2022/11/11/%E5%BF%AB%E8%AF%BB%E6%A8%A1%E6%9D%BF/"/>
+      <url>/2022/11/11/%E5%BF%AB%E8%AF%BB%E6%A8%A1%E6%9D%BF/</url>
+      
+        <content type="html"><![CDATA[<h3 id="int类型"><a href="#int类型" class="headerlink" title="int类型"></a>int类型</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="type">int</span> x = <span class="number">0</span>, f = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">register</span> <span class="type">char</span> ch = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">            f = <span class="number">-1</span>;</span><br><span class="line">        ch = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">        x = x * <span class="number">10</span> + ch - <span class="string">&#x27;0&#x27;</span>, ch = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x * f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> x=<span class="built_in">read</span>();</span><br><span class="line">    cout &lt;&lt; x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><em>cin&gt;scanf&gt;快读</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 码农 </category>
+          
+          <category> 优化技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IO </tag>
+            
+            <tag> 优化 </tag>
             
         </tags>
       
