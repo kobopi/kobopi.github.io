@@ -112,33 +112,6 @@
     
     
     <entry>
-      <title>二叉堆</title>
-      <link href="/2022/11/11/bsheap/"/>
-      <url>/2022/11/11/bsheap/</url>
-      
-        <content type="html"><![CDATA[<h1 id="二叉堆"><a href="#二叉堆" class="headerlink" title="二叉堆"></a>二叉堆</h1><h3 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h3><p>大顶堆：每个结点的值都大于或等于其左右孩子结点的值<br>小顶堆：每个结点的值都小于或等于其左右孩子结点的值<br>二叉堆就是一颗二叉树，是一颗完全二叉树</p><p>定义两个操作：<br>down（int k ）：从编号为k的点向下更新<br>up（int k) :从编号为k的点向上更新</p><p>h[]堆数组，size堆当前大小<br>堆的变化(都可以由上面定义的两个操作来实现)：<br>1.插入一个数 -&gt; h[++ size] = x; up(size)<br>2.求集合中的最小值 -&gt; h[1]<br>3.删除最小值 -&gt; h[1] = h[size]; size —; down(1)<br>4.删除任意一个元素 -&gt; h[k] = h[size]; size —; down(k); up(k);<br>5.修改任意一个元素 -&gt; h[k] = x; down(k); up(k);</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">down</span> <span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="type">int</span> t = u;<span class="comment">//t存储当前位置和左右儿子的最小节点</span></span><br><span class="line"><span class="keyword">if</span> (<span class="number">2</span> * u &lt;= size1 &amp;&amp; h[<span class="number">2</span> * u] &lt; h[t])t = <span class="number">2</span> * u;</span><br><span class="line"><span class="keyword">if</span> (<span class="number">2</span> * u + <span class="number">1</span> &lt;= size1 &amp;&amp; h[<span class="number">2</span> * u + <span class="number">1</span>] &lt; h[t]) t = <span class="number">2</span> * u + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (u != t)<span class="comment">//如果父节点大于其中的儿子节点需要down操作</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">swap</span> (h[u], h[t]);</span><br><span class="line"><span class="built_in">down</span> (t);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">up</span><span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(u/<span class="number">2</span> &amp;&amp; h[u/<span class="number">2</span>]&gt;h[u])<span class="comment">//父结点的值大于儿子节点需要交换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">h_swap</span>(u/<span class="number">2</span>,u);</span><br><span class="line">        u/=<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 码农 </category>
-          
-          <category> 数据结构 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据结构 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>OI-C++竞赛常用STL库和板子（持续更新）</title>
       <link href="/2022/11/11/c++oi/"/>
       <url>/2022/11/11/c++oi/</url>
@@ -160,6 +133,33 @@
             <tag> 算法 </tag>
             
             <tag> STL库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>二叉堆</title>
+      <link href="/2022/11/11/bsheap/"/>
+      <url>/2022/11/11/bsheap/</url>
+      
+        <content type="html"><![CDATA[<h1 id="二叉堆"><a href="#二叉堆" class="headerlink" title="二叉堆"></a>二叉堆</h1><h3 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h3><p>大顶堆：每个结点的值都大于或等于其左右孩子结点的值<br>小顶堆：每个结点的值都小于或等于其左右孩子结点的值<br>二叉堆就是一颗二叉树，是一颗完全二叉树</p><p>定义两个操作：<br>down（int k ）：从编号为k的点向下更新<br>up（int k) :从编号为k的点向上更新</p><p>h[]堆数组，size堆当前大小<br>堆的变化(都可以由上面定义的两个操作来实现)：<br>1.插入一个数 -&gt; h[++ size] = x; up(size)<br>2.求集合中的最小值 -&gt; h[1]<br>3.删除最小值 -&gt; h[1] = h[size]; size —; down(1)<br>4.删除任意一个元素 -&gt; h[k] = h[size]; size —; down(k); up(k);<br>5.修改任意一个元素 -&gt; h[k] = x; down(k); up(k);</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">down</span> <span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="type">int</span> t = u;<span class="comment">//t存储当前位置和左右儿子的最小节点</span></span><br><span class="line"><span class="keyword">if</span> (<span class="number">2</span> * u &lt;= size1 &amp;&amp; h[<span class="number">2</span> * u] &lt; h[t])t = <span class="number">2</span> * u;</span><br><span class="line"><span class="keyword">if</span> (<span class="number">2</span> * u + <span class="number">1</span> &lt;= size1 &amp;&amp; h[<span class="number">2</span> * u + <span class="number">1</span>] &lt; h[t]) t = <span class="number">2</span> * u + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (u != t)<span class="comment">//如果父节点大于其中的儿子节点需要down操作</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">swap</span> (h[u], h[t]);</span><br><span class="line"><span class="built_in">down</span> (t);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">up</span><span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(u/<span class="number">2</span> &amp;&amp; h[u/<span class="number">2</span>]&gt;h[u])<span class="comment">//父结点的值大于儿子节点需要交换</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">h_swap</span>(u/<span class="number">2</span>,u);</span><br><span class="line">        u/=<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 码农 </category>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
             
         </tags>
       
@@ -228,6 +228,35 @@
     
     
     <entry>
+      <title>快速幂</title>
+      <link href="/2022/11/11/sortpow/"/>
+      <url>/2022/11/11/sortpow/</url>
+      
+        <content type="html"><![CDATA[<h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">1</span>, n, m, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;<span class="comment">//求n^m mod k的值</span></span><br><span class="line">    <span class="keyword">while</span>(m&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(m&amp;<span class="number">1</span>==<span class="number">1</span>)</span><br><span class="line">            ans = ans * n % k;</span><br><span class="line">        n = n * n % k;</span><br><span class="line">        m = m &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans % k;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>幂指数 奇数*自身（n）变偶数</p><p>偶数自乘跳跃性到达位置</p><h3 id="时间复杂度：log2（n）"><a href="#时间复杂度：log2（n）" class="headerlink" title="时间复杂度：log2（n）"></a>时间复杂度：log2（n）</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 码农 </category>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 倍增 </tag>
+            
+            <tag> 位运算 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>质数筛</title>
       <link href="/2022/11/11/prime/"/>
       <url>/2022/11/11/prime/</url>
@@ -278,35 +307,6 @@
             <tag> 数据结构 </tag>
             
             <tag> 堆优化 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>快速幂</title>
-      <link href="/2022/11/11/sortpow/"/>
-      <url>/2022/11/11/sortpow/</url>
-      
-        <content type="html"><![CDATA[<h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">1</span>, n, m, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;<span class="comment">//求n^m mod k的值</span></span><br><span class="line">    <span class="keyword">while</span>(m&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(m&amp;<span class="number">1</span>==<span class="number">1</span>)</span><br><span class="line">            ans = ans * n % k;</span><br><span class="line">        n = n * n % k;</span><br><span class="line">        m = m &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans % k;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>幂指数 奇数*自身（n）变偶数</p><p>偶数自乘跳跃性到达位置</p><h3 id="时间复杂度：log2（n）"><a href="#时间复杂度：log2（n）" class="headerlink" title="时间复杂度：log2（n）"></a>时间复杂度：log2（n）</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> 码农 </category>
-          
-          <category> 算法 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 倍增 </tag>
-            
-            <tag> 位运算 </tag>
             
         </tags>
       
